@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock</title>
+</head>
+<style>
+    * {
+        font-family: Arial, Helvetica, sans-serif;
+        border-radius: 5px;
+    }
+
+    body {
+        background-color: black;
+        color: aquamarine;
+        text-align: center;
+    }
+
+
+    #clockBox {
+        background-color: orange;
+        height: 50px;
+        width: 200px;
+    }
+
+    .flex {
+        margin-top: 20vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+</style>
+
+<body>
+
+    <div class="flex">
+        <div>
+            <h1>Digital Clock</h1>
+        </div>
+        <span id="clockBox">
+
+        </span>
+    </div>
+</body>
+
+<script>
+
+    const clock = document.getElementById('clockBox')
+    clock.style.fontSize = "35px"
+
+    setInterval(function () {
+        const time = new Date()
+        clock.innerHTML = time.toLocaleTimeString()
+
+    }, 1000)
+
+</script>
+
+</html>

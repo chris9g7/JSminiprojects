@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Calculator</title>
+    <style>
+        * {
+
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+            border-radius: 5px;
+
+        }
+
+        body {
+            background-color: black;
+            color: aquamarine;
+        }
+
+
+        button {
+            background: red;
+            padding: 5px;
+            font-size: 1.2em;
+            font-weight: 600;
+        }
+
+        #calculateBtn {
+            background-color: green;
+            color: white;
+        }
+
+        #clearBtn {
+            background-color: gray;
+            color: white;
+            padding: 5px;
+            font-size: 1.2em;
+            font-weight: 600;
+        }
+        
+        a{
+            font-size: 12px;
+            text-decoration: none;
+            color: purple;
+        }
+    </style>
+</head>
+<br>
+
+<h1>BMI Calculator</h1>
+<form>
+    <br action="#">
+
+    <span>Age »</span>
+    <input type="text" placeholder="2-120yrs" id="age">
+    </br>
+    </br>
+
+    <span>Gender</span>
+    <input type="radio" name="gender" id="M">
+    <label for="M">Male</label>
+
+    <input type="radio" name="gender" id="F">
+    <label for="F">Female</label>
+    <br><br>
+    <span>Height »</span>
+    <input type="text" size="19" placeholder="cm" id="height">
+    <br><br>
+    <span>Weight »</span>
+    <input type="text" size="19" placeholder="kg" id="weight">
+    <br>
+    <br>
+    <button id="calculateBtn">Calculate ▶</button>
+    <input type="reset" value="clear" id="clearBtn">
+    <br><br>
+    <div id="result"></div>
+    <div id="show"></div>
+</form>
+<a href="digiClock.html">◐</a>
+
+<script>
+
+    const form = document.querySelector('form')
+
+    form.addEventListener("submit", (e) => {
+
+        e.preventDefault()
+
+        const age = Number(document.getElementById('age').value)
+        const height = Number(document.getElementById('height').value)
+        const weight = Number(document.getElementById('weight').value)
+        const result = document.getElementById('result')
+
+        if (age === "" || (age < 0 || age >= 120) || isNaN(age)) {
+            result.style.color = "red"
+            result.style.fontSize = "20px"
+            result.innerHTML = "Please enter the age between 2 - 120"
+        }
+
+        else if (height === "" || height < 0 || isNaN(height)) {
+            result.style.color = "red"
+            result.style.fontSize = "20px"
+            result.innerHTML = "Please give a valid height"
+        }
+
+        else if (weight === "" || weight < 0 || isNaN(weight)) {
+            result.style.color = "red"
+            result.style.fontSize = "20px"
+            result.innerHTML = "Please give a valid weight"
+        }
+
+        else {
+            const bmi = (weight / ((height * height) / 10000)).toFixed(2)
+            result.style.fontSize = "40px"
+            result.innerHTML = `<span>${bmi}</span>`
+
+            const show = document.getElementById('show')
+
+            if (18.9 <= bmi && bmi <= 24.9)
+            show.innerHTML = "Normal Weight"
+
+            else if (bmi < 18.6)
+                show.innerHTML = "Under Weight"
+
+            else
+                show.innerHTML = "Over Weight"
+
+        }
+
+
+
+    })
+
+
+
+
+
+</script>
+</body>
+
+</html>

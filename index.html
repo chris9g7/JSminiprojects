@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Switcher</title>
+
+    <style>
+        * {
+            text-align: center;
+            font-size: 1.7rem;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        button {
+            height: 50px;
+            width: 50px;
+            border-radius: 50%;
+            border: none;
+        }
+
+        a{
+            text-decoration: none;
+            color: purple;
+        }
+
+
+        #red {
+            background-color: #FF0800;
+        }
+
+        #grey {
+            background-color: #C0C0C0;
+        }
+
+        #blue {
+            background-color: #00B9E8;
+        }
+
+        #yellow {
+            background-color: #FFD700;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <h1>Color Scheme Switcher</h1>
+
+        <button id="red"></button>
+        <button id="grey"></button>
+        <button id="blue"></button>
+        <button id="yellow"></button>
+
+        <h4 style="font-size: small;">Try clicking on one of the colors above to change the background color of this
+            page!</h4>
+        <a href="bmi.html">BMI</a>
+    </main>
+
+
+    <script>
+
+        const buttons = document.querySelectorAll('button')
+        buttons.forEach((button) => {
+
+            button.addEventListener('click', (e) => {
+                document.body.style.color = "#EDEAE0"
+
+                if (button.id === 'red') {
+                    document.body.style.backgroundColor = '#FF0800'
+                }
+
+                if (button.id === 'grey') {
+                    document.body.style.backgroundColor = '#C0C0C0'
+                }
+
+                if (button.id === 'blue') {
+                    document.body.style.backgroundColor = '#00B9E8'
+                }
+
+                if (button.id === 'yellow') {
+                    document.body.style.backgroundColor = '#FFD700'
+                }
+
+            })
+        })
+
+
+    </script>
+
+</body>
+
+</html>
